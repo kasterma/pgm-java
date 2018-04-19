@@ -26,11 +26,17 @@
         </dependency>
 
         <!--<dependency>-->
-            <!--<groupId>org.nd4j</groupId>-->
-            <!--<artifactId>nd4j-native</artifactId>-->
-            <!--<version>${nd4j.version}</version>-->
-            <!--<classifier>linux-x86_64-avx2</classifier>-->
+        <!--<groupId>org.nd4j</groupId>-->
+        <!--<artifactId>nd4j-native</artifactId>-->
+        <!--<version>${nd4j.version}</version>-->
+        <!--<classifier>linux-x86_64-avx2</classifier>-->
         <!--</dependency>-->
+
+        <dependency>
+            <groupId>io.vavr</groupId>
+            <artifactId>vavr</artifactId>
+            <version>0.9.2</version>
+        </dependency>
 
         <dependency>
             <groupId>org.projectlombok</groupId>

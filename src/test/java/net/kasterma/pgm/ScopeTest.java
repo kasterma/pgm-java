@@ -2,10 +2,9 @@ package net.kasterma.pgm;
 
 import org.junit.Test;
 
-import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class ScopeTest {
     @Test
@@ -22,9 +21,9 @@ public class ScopeTest {
         assertEquals((int) strides.get(2), 6);
 
         Scope s2 = Scope.builder()
-                .addDomain(new Domain(0, 2))
-                .addDomain(new Domain(1, 2))
-                .addDomain(new Domain(2, 3))
+                .addDomain(0, 2)
+                .addDomain(1, 2)
+                .addDomain(2, 3)
                 .build();
         strides = s2.getStrides();
         assertEquals(strides.size(), 3);
@@ -32,5 +31,4 @@ public class ScopeTest {
         assertEquals((int) strides.get(1), 4);
         assertEquals((int) strides.get(2), 12);
     }
-
 }
