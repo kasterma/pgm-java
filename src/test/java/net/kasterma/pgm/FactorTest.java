@@ -14,7 +14,7 @@ public class FactorTest {
         List<Integer> li = new LinkedList<>();
         li.add(0);
         li.add(1);
-        Factor f1 = new Factor(Nd4j.create(2), li);
+        Nd4jFactor f1 = new Nd4jFactor(Nd4j.create(2), li);
         assertTrue(f1.getScope() instanceof LinkedList);
     }
 
