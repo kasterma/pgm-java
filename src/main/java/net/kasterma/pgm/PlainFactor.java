@@ -8,9 +8,9 @@ import java.util.stream.IntStream;
 
 public class PlainFactor implements Factor {
     private final double[] vals;
-    private final List<Integer> scope;
+    private final Scope scope;
 
-    public PlainFactor(double[] vals, List<Integer> scope) {
+    public PlainFactor(double[] vals, Scope scope) {
         this.vals = vals;
         this.scope = scope;
     }
@@ -22,26 +22,14 @@ public class PlainFactor implements Factor {
         return vals.clone();
     }
 
-    /**
-     * @return clone of the scope array.
-     */
-    public List<Integer> getScope() {
-        return scope;
-    }
 
-    List<Integer> getStrides() {
-        List<Integer> strides = new ArrayList<>();
-        strides.add(scope.get(0));
-        scope.stream().reduce((i, j) -> {int rv = i*j; strides.add(rv); return rv;});
-        return strides;
-    }
 
     public Factor mul(PlainFactor other) {
-        Map<Integer, Integer> commonMapping = new HashMap<>();
-        IntStream.range(0, scope.size()).forEach(i -> {
-            int idx = other.scope.indexOf(scope.get(i));
-            if (idx >= 0) commonMapping.put(i, idx);
-        });
+//        Map<Integer, Integer> commonMapping = new HashMap<>();
+//        IntStream.range(0, scope.size()).forEach(i -> {
+//            int idx = other.scope.indexOf(scope.get(i));
+//            if (idx >= 0) commonMapping.put(i, idx);
+//        });
         return null;
     }
 
