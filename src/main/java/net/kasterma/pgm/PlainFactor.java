@@ -58,11 +58,37 @@ class PlainFactorBuilder {
         return this;
     }
 
-    PlainFactorBuilder setValues(double[] vals) {
+    private void _finishScope() {
         if (scope.isRight()) {
             scope = Either.left(scope.get().build());
         }
+    }
+
+    private void _valsCreated() {
+        if (vals == null)
+            vals = new double[scope.getLeft().size()];
+    }
+
+    PlainFactorBuilder setValues(double[] vals) {
+        _finishScope();
         this.vals = vals;
+        return this;
+    }
+
+    PlainFactorBuilder setValue(int[] idxs, double val) {
+        _finishScope();
+        _valsCreated();
+        vals[scope.getLeft().index(idxs)] = val;
+        return this;
+    }
+
+    PlainFactorBuilder setValue(int idx, double val) {
+        _finishScope();
+        _valsCreated();
+        if (idx >= vals.length) {
+            throw new IllegalArgumentException("idx too large");
+        }
+        vals[idx] = val;
         return this;
     }
 }
